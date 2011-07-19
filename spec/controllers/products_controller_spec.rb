@@ -24,7 +24,7 @@ describe ProductsController do
   # Product. As you add validations to Product, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "T-shirt"}
   end
 
   describe "GET index" do
