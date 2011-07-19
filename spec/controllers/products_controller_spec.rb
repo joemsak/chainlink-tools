@@ -72,9 +72,9 @@ describe ProductsController do
         assigns(:product).should be_persisted
       end
 
-      it "redirects to the created product" do
+      it "redirects to the product listing" do
         post :create, :product => valid_attributes
-        response.should redirect_to(Product.last)
+        response.should redirect_to(products_url)
       end
     end
 
