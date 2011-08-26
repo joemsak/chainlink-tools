@@ -1,3 +1,6 @@
+@import 'compass';
+@include reset-html5;
+
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
@@ -10,6 +13,16 @@ a img {
 
 a {
   color: #0000FF;
+}
+
+table{
+  width:100%;
+  td, th{
+    padding:5px;
+  }
+  th{
+    text-align:left;
+  }
 }
 
 .clear {
@@ -42,8 +55,9 @@ a {
   border: solid 1px #C66;
 }
 
-.fieldWithErrors {
-  display: inline;
+.field_with_errors {
+  padding:3px;
+  background:#fcc;
 }
 
 .error_messages {

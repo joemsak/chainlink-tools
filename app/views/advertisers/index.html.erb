@@ -1,0 +1,51 @@
+<% title "Advertisers" %>
+<nav id="ad_nav">
+  <%= link_to 'All', 
+              advertisers_path, 
+              :class => active_if_matches('advertisers', request.fullpath.split('/').last) %>
+  <%= link_to 'Active', 
+              active_advertisers_path, 
+              :class => active_if_matches('active', request.fullpath.split('/').last) %>            
+  <%= link_to 'Upcoming', 
+              upcoming_advertisers_path, 
+              :class => active_if_matches('upcoming', request.fullpath.split('/').last) %>
+  <%= link_to 'Paid', 
+              paid_advertisers_path, 
+              :class => active_if_matches('paid', request.fullpath.split('/').last) %>
+  <%= link_to 'Unpaid', 
+              unpaid_advertisers_path, 
+              :class => active_if_matches('unpaid', request.fullpath.split('/').last) %>
+  <%= link_to 'Archived', 
+              archived_advertisers_path, 
+              :class => active_if_matches('archived', request.fullpath.split('/').last) %>
+</nav>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Website</th>
+    <th>Starts</th>
+    <th>Ends</th>
+    <th>Paid</th>
+  </tr>
+  <% for advertiser in @advertisers %>
+    <tr>
+      <td><%= advertiser.name %></td>
+      <td><%=auto_link advertiser.website %></td>
+      <td><%= advertiser.starts.strftime('%a, %b %d') %></td>
+      <td><%= advertiser.ends.strftime('%a, %b %d') %></td>
+      <td><%= advertiser.paid %></td>
+      <td><%= link_to "Show", advertiser %></td>
+      <td><%= link_to "Edit", edit_advertiser_path(advertiser) %></td>
+      <td><%= link_to "Destroy", advertiser, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Advertiser", new_advertiser_path %></p>
+
+<h2>Sidebar Code</h2>
+<p>Just copy and paste this at any time into the Chainlink sidebar 'HTML' view. It only shows the list of current, paid advertisers</p>
+
+<textarea id="ad_code"><%= render 'code' %></textarea>
+

@@ -1,0 +1,27 @@
+@import 'compass';
+@import 'compass/css3';
+
+#ad_nav{
+  a{
+    display:inline-block;
+    padding:3px 5px;
+    margin:0 15px 0 0;
+    color:#333;
+    text-decoration:none;
+    @include border-radius(3px);
+    &:hover, &.active{
+      background:#333;
+      color:#fff;
+    }
+    &.active{
+      font-weight:bold;
+    }
+  }
+}
+
+#ad_code{
+  border:1px solid #ccc;
+  margin:10px 0;
+  width:500px;
+  height:200px;
+}

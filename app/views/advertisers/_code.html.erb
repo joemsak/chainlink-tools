@@ -1,0 +1,9 @@
+<div id="sponsor_list">
+<h2>Support our Partners!</h2>
+<p>To find out how to become a partner, email: <a href="mailto:partners@thechainlink.org">partners@thechainlink.org</a></p>
+<ul>
+  <% Advertiser.current.paid.each do |advertiser| -%>
+    <li><%= link_to advertiser.name, advertiser.website %></li>
+  <% end -%>
+</ul>
+</div>

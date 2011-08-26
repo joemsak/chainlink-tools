@@ -20,6 +20,7 @@ gem "tanker", "~> 1.1.3"
 gem 'will_paginate', '~>3.0.pre4'
 
 gem 'simple_form'
+gem 'rails_autolink'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -54,3 +55,4 @@ group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'
   gem 'pg'
 end
+gem "mocha", :group => :test

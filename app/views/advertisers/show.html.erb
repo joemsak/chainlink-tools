@@ -1,0 +1,28 @@
+<% title "Advertiser" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @advertiser.name %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <%= @advertiser.website %>
+</p>
+<p>
+  <strong>Starts:</strong>
+  <%= @advertiser.starts %>
+</p>
+<p>
+  <strong>Ends:</strong>
+  <%= @advertiser.ends %>
+</p>
+<p>
+  <strong>Paid:</strong>
+  <%= @advertiser.paid %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_advertiser_path(@advertiser) %> |
+  <%= link_to "Destroy", @advertiser, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", advertisers_path %>
+</p>
