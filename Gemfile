@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc6'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -8,11 +8,16 @@ gem 'rails', '3.1.0.rc4'
 gem 'sqlite3'
 
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails', "~> 3.1.0.rc.6"
+gem 'compass', :git => 'git://github.com/chriseppstein/compass', :branch => 'rails31'
+
 gem 'coffee-script'
 gem 'uglifier'
 
 gem 'jquery-rails'
+gem 'indextank'
+gem "tanker", "~> 1.1.3"
+gem 'will_paginate', '~>3.0.pre4'
 
 gem 'simple_form'
 
@@ -25,12 +30,8 @@ gem 'simple_form'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-end
-
 group :test, :development do
+  gem 'turn', :require => false
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
@@ -46,6 +47,7 @@ end
 group :development do
   gem 'heroku'
   gem 'taps'
+  gem "nifty-generators"
 end
 
 group :production do
