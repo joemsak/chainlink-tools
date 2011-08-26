@@ -1,5 +1,5 @@
 $ = jQuery
-$ ->
+$ ->  
 	$("#sortable").sortable
 	  items: 'tr'
 	  handle: 'td.handle'
@@ -15,3 +15,5 @@ $ ->
 	      index += 1
 	      $(this).addClass 'even' if index%2 is 0
 	      $(this).addClass 'odd' if index%2 isnt 0
+	    $.post '/advertisers/update_positions', $("#sortable").sortable('serialize'), (data) ->
+	      location.reload true

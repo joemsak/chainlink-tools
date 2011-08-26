@@ -57,6 +57,13 @@ class AdvertisersController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  def update_positions
+    params[:advertiser].each_with_index do |ad, idx|
+      Advertiser.find(ad.to_i).update_attribute('position', idx)
+    end
+    render :nothing => true, :status => 200
+  end
 
   def destroy
     @advertiser = Advertiser.find(params[:id])

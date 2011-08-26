@@ -30,7 +30,7 @@
     <th>Actions</th>
   </tr>
   <% for advertiser in @advertisers %>
-    <tr class="item <%= cycle('odd','even') %>">
+    <tr id="<%= dom_id advertiser %>" class="item <%= cycle('odd','even') %>">
       <td><%= advertiser.name %></td>
       <td><%=auto_link advertiser.website %></td>
       <td><%= advertiser.starts.strftime('%a, %b %d') %></td>
@@ -49,5 +49,6 @@
 <hr>
 <h2>Sidebar Code</h2>
 <p>Just copy and paste this at any time into the Chainlink sidebar 'HTML' view. It only shows the list of current, paid advertisers</p>
-
-<textarea id="ad_code"><%= render 'code' %></textarea>
+<div id="ad_code_area">
+  <textarea id="ad_code"><%= render 'code' %></textarea>
+</div>

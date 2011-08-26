@@ -9,6 +9,8 @@ Clinventory::Application.routes.draw do
       get :code
     end
   end
+  
+  post 'advertisers/update_positions(/:advertiser)' => 'advertisers#update_positions'
 
   resources :products
   
