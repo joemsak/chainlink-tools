@@ -20,8 +20,9 @@
               :class => active_if_matches('archived', request.fullpath.split('/').last) %>
 </nav>
 
-<table cellspacing="0" cellpadding="0">
+<table id="sortable" cellspacing="0" cellpadding="0">
   <tr>
+    <th class="handle"></th>
     <th>Name</th>
     <th>Website</th>
     <th>Starts</th>
@@ -30,7 +31,8 @@
     <th>Actions</th>
   </tr>
   <% for advertiser in @advertisers %>
-    <tr class="<%= cycle('odd','even') %>">
+    <tr class="item <%= cycle('odd','even') %>">
+      <td class="handle"></td>
       <td><%= advertiser.name %></td>
       <td><%=auto_link advertiser.website %></td>
       <td><%= advertiser.starts.strftime('%a, %b %d') %></td>
@@ -50,4 +52,3 @@
 <p>Just copy and paste this at any time into the Chainlink sidebar 'HTML' view. It only shows the list of current, paid advertisers</p>
 
 <textarea id="ad_code"><%= render 'code' %></textarea>
-

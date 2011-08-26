@@ -25,12 +25,18 @@ table{
   }
   td{
     border-bottom:1px solid #ccc;
+    &.handle{
+      cursor:move;
+      height:20px;
+      width:20px;
+      background-image:url(/assets/icon-sort.png) no-repeat center;
+    }
   }
   .even td{
-    background:#ccc;
+    background-color:#ccc;
   }
   .odd td{
-    background:#eee;
+    background-color:#eee;
   }
 }
 
