@@ -22,7 +22,6 @@
 
 <table id="sortable" cellspacing="0" cellpadding="0">
   <tr>
-    <th class="handle"></th>
     <th>Name</th>
     <th>Website</th>
     <th>Starts</th>
@@ -32,7 +31,6 @@
   </tr>
   <% for advertiser in @advertisers %>
     <tr class="item <%= cycle('odd','even') %>">
-      <td class="handle"></td>
       <td><%= advertiser.name %></td>
       <td><%=auto_link advertiser.website %></td>
       <td><%= advertiser.starts.strftime('%a, %b %d') %></td>
@@ -42,6 +40,7 @@
         <%= link_to "Edit", edit_advertiser_path(advertiser) %>&nbsp;|
         <%= link_to "Destroy", advertiser, :confirm => 'Are you sure?', :method => :delete %>
       </td>
+      <td class="handle"></td>
     </tr>
   <% end %>
 </table>
