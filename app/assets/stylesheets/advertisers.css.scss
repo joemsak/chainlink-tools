@@ -2,6 +2,9 @@
 @import 'compass/css3';
 
 #ad_nav{
+  margin:10px 0;
+  padding:5px 0;
+  border-bottom:1px solid #ccc;
   a{
     display:inline-block;
     padding:3px 5px;
@@ -24,4 +27,13 @@
   margin:10px 0;
   width:500px;
   height:200px;
+}
+
+form.advertiser{
+  input[type=text], input[type=url]{
+    font-size:14px;
+    padding:5px;
+    width:400px;
+    border:1px solid #999;
+  }
 }

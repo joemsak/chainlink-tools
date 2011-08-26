@@ -1,6 +1,6 @@
 class AdvertisersController < ApplicationController
   def index
-    @advertisers = Advertiser.all
+    @advertisers = Advertiser.active
   end
   
   def active
@@ -9,17 +9,17 @@ class AdvertisersController < ApplicationController
   end
   
   def upcoming
-    @advertisers = Advertiser.upcoming
+    @advertisers = Advertiser.upcoming.paid
     render :template => 'advertisers/index'
   end
 
   def paid
-    @advertisers = Advertiser.paid
+    @advertisers = Advertiser.paid.active
     render :template => 'advertisers/index'
   end
 
   def unpaid
-    @advertisers = Advertiser.unpaid
+    @advertisers = Advertiser.unpaid.active
     render :template => 'advertisers/index'
   end
 
@@ -39,7 +39,7 @@ class AdvertisersController < ApplicationController
   def create
     @advertiser = Advertiser.new(params[:advertiser])
     if @advertiser.save
-      redirect_to @advertiser, :notice => "Successfully created advertiser."
+      redirect_to advertisers_path, :notice => "Successfully created advertiser."
     else
       render :action => 'new'
     end
@@ -52,7 +52,7 @@ class AdvertisersController < ApplicationController
   def update
     @advertiser = Advertiser.find(params[:id])
     if @advertiser.update_attributes(params[:advertiser])
-      redirect_to @advertiser, :notice  => "Successfully updated advertiser."
+      redirect_to advertisers_path, :notice  => "Successfully updated advertiser."
     else
       render :action => 'edit'
     end

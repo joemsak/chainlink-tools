@@ -23,6 +23,19 @@ table{
   th{
     text-align:left;
   }
+  td{
+    border-bottom:1px solid #ccc;
+  }
+  .even td{
+    background:#ccc;
+  }
+  .odd td{
+    background:#eee;
+  }
+}
+
+label{
+  cursor:pointer;
 }
 
 .clear {

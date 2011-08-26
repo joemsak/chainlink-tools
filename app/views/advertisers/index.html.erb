@@ -20,30 +20,32 @@
               :class => active_if_matches('archived', request.fullpath.split('/').last) %>
 </nav>
 
-<table>
+<table cellspacing="0" cellpadding="0">
   <tr>
     <th>Name</th>
     <th>Website</th>
     <th>Starts</th>
     <th>Ends</th>
     <th>Paid</th>
+    <th>Actions</th>
   </tr>
   <% for advertiser in @advertisers %>
-    <tr>
+    <tr class="<%= cycle('odd','even') %>">
       <td><%= advertiser.name %></td>
       <td><%=auto_link advertiser.website %></td>
       <td><%= advertiser.starts.strftime('%a, %b %d') %></td>
       <td><%= advertiser.ends.strftime('%a, %b %d') %></td>
       <td><%= advertiser.paid %></td>
-      <td><%= link_to "Show", advertiser %></td>
-      <td><%= link_to "Edit", edit_advertiser_path(advertiser) %></td>
-      <td><%= link_to "Destroy", advertiser, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td>
+        <%= link_to "Edit", edit_advertiser_path(advertiser) %>&nbsp;|
+        <%= link_to "Destroy", advertiser, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
     </tr>
   <% end %>
 </table>
 
 <p><%= link_to "New Advertiser", new_advertiser_path %></p>
-
+<hr>
 <h2>Sidebar Code</h2>
 <p>Just copy and paste this at any time into the Chainlink sidebar 'HTML' view. It only shows the list of current, paid advertisers</p>
 
